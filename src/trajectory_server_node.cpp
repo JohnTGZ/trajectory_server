@@ -1,10 +1,11 @@
 #include <cstdio>
+#include "trajectory_server/trajectory_server.hpp"
 
 int main(int argc, char ** argv)
 {
-  (void) argc;
-  (void) argv;
-
-  printf("hello world trajectory_server package\n");
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<TrajectoryServer>());
+  rclcpp::shutdown();
+  
   return 0;
 }
